@@ -62,6 +62,8 @@ export default function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [puzzleEraId, setPuzzleEraId] = useState(null);
   const [eraUnlockedModal, setEraUnlockedModal] = useState(null);
+  const [storyModal, setStoryModal] = useState(null);
+  const [seenStories, setSeenStories] = useState(() => initialData.seenStories ?? []);
 
   const soundFX = useSoundFX(isMuted);
 
@@ -80,13 +82,14 @@ export default function App() {
           stats,
           solvedPuzzles,
           lang,
-          apiKey
+          apiKey,
+          seenStories
         })
       );
     } catch (e) {
       console.warn('Failed to save to localStorage', e);
     }
-  }, [currentEra, unlockedEras, inventory, stats, solvedPuzzles, lang, apiKey]);
+  }, [currentEra, unlockedEras, inventory, stats, solvedPuzzles, lang, apiKey, seenStories]);
 
   // Handle element discovery
   const handleDiscover = (elemId) => {
@@ -117,6 +120,39 @@ export default function App() {
     checkEraProgression(inventory, updated);
   };
 
+  const advanceToNextEra = (nextEra) => {
+    setCurrentEra(nextEra);
+    setUnlockedEras(prev => [...prev, nextEra]);
+    setPuzzleEraId(nextEra);
+
+    // Add native raw starter elements for next era
+    const newStarters = Object.values(ELEMENTS)
+      .filter(e => e.era === nextEra && e.category === 'raw')
+      .map(e => e.id);
+
+    setInventory(prev => Array.from(new Set([...prev, ...newStarters])));
+    setStats(prev => ({
+      ...prev,
+      food: Math.min(100, prev.food + 20),
+      stability: Math.min(100, prev.stability + 20)
+    }));
+
+    // Celebratory notification & Confetti
+    const nextDef = ERAS.find(e => e.id === nextEra);
+    setEraUnlockedModal({
+      eraId: nextEra,
+      name: nextDef?.name[lang] || `Era ${nextEra}`,
+      badge: nextDef?.badge || '🌟',
+      story: nextDef?.story[lang] || ''
+    });
+    soundFX.playDiscover();
+    confetti({
+      particleCount: 120,
+      spread: 90,
+      origin: { y: 0.6 }
+    });
+  };
+
   const checkEraProgression = (currentInv, currentSolved) => {
     const eraDef = ERAS.find(e => e.id === currentEra);
     if (!eraDef) return;
@@ -127,37 +163,30 @@ export default function App() {
     if (hasAll && puzzleDone && currentEra < ERAS.length) {
       const nextEra = currentEra + 1;
       if (!unlockedEras.includes(nextEra)) {
-        setCurrentEra(nextEra);
-        setUnlockedEras(prev => [...prev, nextEra]);
-        setPuzzleEraId(nextEra);
-
-        // Add native raw starter elements for next era
-        const newStarters = Object.values(ELEMENTS)
-          .filter(e => e.era === nextEra && e.category === 'raw')
-          .map(e => e.id);
-
-        setInventory(prev => Array.from(new Set([...prev, ...newStarters])));
-        setStats(prev => ({
-          ...prev,
-          food: Math.min(100, prev.food + 20),
-          stability: Math.min(100, prev.stability + 20)
-        }));
-
-        // Celebratory notification & Confetti
-        const nextDef = ERAS.find(e => e.id === nextEra);
-        setEraUnlockedModal({
-          eraId: nextEra,
-          name: nextDef?.name[lang] || `Era ${nextEra}`,
-          badge: nextDef?.badge || '🌟',
-          story: nextDef?.story[lang] || ''
-        });
-        soundFX.playDiscover();
-        confetti({
-          particleCount: 120,
-          spread: 90,
-          origin: { y: 0.6 }
-        });
+        if (eraDef.endStory && !seenStories.includes(eraDef.id)) {
+          setStoryModal({
+            eraId: eraDef.id,
+            isAdvanceSequence: true,
+            pendingNextEra: nextEra
+          });
+        } else {
+          advanceToNextEra(nextEra);
+        }
       }
+    }
+  };
+
+  const handleContinueStory = () => {
+    soundFX.playClick();
+    if (!storyModal) return;
+
+    const { eraId, isAdvanceSequence, pendingNextEra } = storyModal;
+
+    setSeenStories(prev => (prev.includes(eraId) ? prev : [...prev, eraId]));
+    setStoryModal(null);
+
+    if (isAdvanceSequence && pendingNextEra) {
+      advanceToNextEra(pendingNextEra);
     }
   };
 
@@ -178,6 +207,7 @@ export default function App() {
       setSlot1(null);
       setSlot2(null);
       setPuzzleEraId(1);
+      setSeenStories([]);
       soundFX.playClick();
     }
   };
@@ -392,9 +422,42 @@ export default function App() {
             unlockedEras={unlockedEras}
             inventory={inventory}
             lang={lang}
+            onOpenStory={(eraId) => {
+              soundFX.playClick();
+              setStoryModal({
+                eraId,
+                isAdvanceSequence: false
+              });
+            }}
           />
         )}
       </main>
+
+      {/* End-of-Era Story Modal */}
+      {storyModal && (() => {
+        const storyEra = ERAS.find(e => e.id === storyModal.eraId);
+        if (!storyEra || !storyEra.endStory) return null;
+
+        return (
+          <div className="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4">
+            <div className="bg-slate-900 border-2 border-amber-500/50 rounded-2xl p-6 max-w-lg w-full shadow-2xl text-center flex flex-col items-center">
+              <span className="text-5xl mb-3">{storyEra.badge}</span>
+              <h2 className="text-xl font-extrabold text-white mb-3">
+                Era {storyEra.id}: {storyEra.name[lang]}
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-left mb-6 bg-slate-950/60 p-4 rounded-xl border border-slate-800 max-h-[60vh] overflow-y-auto">
+                {storyEra.endStory[lang]}
+              </p>
+              <button
+                onClick={handleContinueStory}
+                className="px-8 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 shadow-lg shadow-amber-500/20 active:scale-95 transition"
+              >
+                {lang === 'hi' ? 'आगे बढ़ें' : 'Continue'}
+              </button>
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Era Advance Celebration Modal */}
       {eraUnlockedModal && (

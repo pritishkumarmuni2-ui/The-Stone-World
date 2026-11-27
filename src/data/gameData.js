@@ -23,7 +23,11 @@ export const ERAS = [
       hi: "चकमक पत्थर के शंकु जैसे टूटने से शल्य चिकित्सा के ब्लेड से भी तेज़ धार बनती है। घर्षण से पैदा हुई गर्मी सूखे पत्तों को 300°C तक गर्म कर आग सुलगाती है।"
     },
     requiredDiscoveries: ["controlled_fire", "sharp_flint", "spear", "charcoal"],
-    puzzleId: "leverage_puzzle"
+    puzzleId: "leverage_puzzle",
+    endStory: {
+      en: "Long before cities or even words for them, small bands of our ancestors lived under open skies. Nights were freezing and full of hunters with claws and teeth, and our ancestors had neither. What they had was a clever hand and a curious mind. They split flint into blades sharper than anything in nature, tied stone to wood to make the spear, and learned to keep a fire alive instead of running from it. Fire cooked their food, warmed the cave, and drove predators back, and burning wood in low air gave them charcoal, a hotter fuel. For the first time, humans were not just surviving the night. But a life spent chasing herds was uncertain, and hunger still decided where they could go.",
+      hi: "शहरों और खेती से बहुत पहले, हमारे पूर्वज छोटे-छोटे समूहों में खुले आसमान के नीचे रहते थे। रातें कड़ाके की ठंडी होती थीं और पंजों-दाँतों वाले शिकारी हर तरफ़ घूमते थे, जबकि हमारे पूर्वजों के पास न नुकीले पंजे थे, न घने बाल। उनके पास थे चतुर हाथ और जिज्ञासु दिमाग़। उन्होंने चकमक पत्थर को तराशकर प्रकृति की किसी भी चीज़ से तेज़ धार बनाई, पत्थर को लकड़ी से बाँधकर भाला बनाया और आग से भागने के बजाय उसे जलाए रखना सीखा। आग से खाना पका, गुफा गर्म हुई और जंगली जानवर दूर रहे; कम हवा में लकड़ी जलाने से उन्हें कोयला मिला, जो और तेज़ आँच देता था। पहली बार मनुष्य सिर्फ़ रात काट नहीं रहा था, बल्कि उसे जीत रहा था। मगर झुंडों के पीछे भागती ज़िंदगी अनिश्चित थी, और भूख अब भी तय करती थी कि वे कहाँ जा सकते हैं।"
+    }
   },
   {
     id: 2,
@@ -45,7 +49,11 @@ export const ERAS = [
       hi: "पौधों के चयनात्मक रोपण से फसलों की पैदावार 5 गुना बढ़ी। गीली मिट्टी को आग में पकाने से सिलिकेट सख्त होकर जलरोधी बर्तन बनाते हैं।"
     },
     requiredDiscoveries: ["agriculture", "ceramic_pot", "primitive_hoe", "irrigation_canal"],
-    puzzleId: "irrigation_puzzle"
+    puzzleId: "irrigation_puzzle",
+    endStory: {
+      en: "Around ten thousand years ago, people who had followed the herds began to notice something: the wild grasses they gathered grew from seeds, and seeds could be planted. Along river valleys, families chose the best grains, shaped river clay into pots and baked them in fire so grain could be stored safely, and dragged wooden hoes and ploughs through the soil. When the rains were uncertain, they dug canals to bring the river to their fields. For the first time there was more food than people could eat in a day, and so people stayed. The first villages appeared, with granaries, houses, and neighbours. But settled people had new needs: tools that would not break, and a way to remember who owned what.",
+      hi: "लगभग दस हज़ार साल पहले, जो लोग जानवरों के झुंडों के पीछे घूमते थे, उन्होंने एक बात गौर की: जिन जंगली घासों के दाने वे इकट्ठा करते थे, वे बीजों से उगती हैं, और बीजों को बोया जा सकता है। नदी घाटियों में परिवारों ने सबसे अच्छे दाने चुने, नदी की मिट्टी से बर्तन बनाकर आग में पकाए ताकि अनाज सुरक्षित रखा जा सके, और लकड़ी के कुदाल-हल से ज़मीन जोती। जब बारिश भरोसे लायक नहीं रही, तो उन्होंने नहरें खोदकर नदी का पानी खेतों तक पहुँचाया। पहली बार इतना अनाज हुआ कि एक दिन में खाया न जा सके, और इसलिए लोग एक जगह टिक गए। पहली बस्तियाँ बसीं, अनाज के भंडार, घर और पड़ोसी बने। मगर बसे हुए लोगों की नई ज़रूरतें थीं: ऐसे औज़ार जो आसानी से न टूटें, और हिसाब याद रखने का कोई तरीका।"
+    }
   },
   {
     id: 3,
@@ -67,7 +75,11 @@ export const ERAS = [
       hi: "कांसा शुद्ध तांबे से अधिक कठोर होता है क्योंकि टिन के बड़े परमाणु तांबे के क्रिस्टल जालक में परमाणुओं के फिसलने को रोकते हैं।"
     },
     requiredDiscoveries: ["bronze_alloy", "cuneiform_tablet", "spoked_wheel"],
-    puzzleId: "smelting_puzzle"
+    puzzleId: "smelting_puzzle",
+    endStory: {
+      en: "Villages grew, and stone tools were no longer enough. Someone noticed that green rocks, heated in a hot kiln, gave up shining red copper. Soft on its own, copper met tin in the fire, and together they made bronze, a metal hard enough for tools, armour, and blades. Villages now had spare grain, and counting it needed a memory outside the head, so people pressed reeds into wet clay and invented writing. Someone else turned a log into a wheel, then lightened it with spokes. Goods, tools, and words could now travel farther than ever. Cities began to rise, and cities needed something more: a fair way to trade with strangers they might never meet again.",
+      hi: "बस्तियाँ बड़ी हुईं और पत्थर के औज़ार काफ़ी नहीं रहे। किसी ने देखा कि हरे रंग के पत्थर तेज़ भट्टी में तपाने पर चमकदार लाल तांबा छोड़ देते हैं। तांबा अकेला नरम था, पर आग में टिन से मिलकर वह कांसा बन गया, ऐसी धातु जो औज़ारों, कवचों और तलवारों के लिए काफ़ी कठोर थी। अब गाँवों के पास अनाज की बचत थी, और उसकी गिनती रखने के लिए दिमाग़ के बाहर एक याददाश्त चाहिए थी, तो लोगों ने गीली मिट्टी पर नरकट दबाकर लिखना शुरू किया। किसी और ने लकड़ी के लट्ठे से पहिया बनाया और फिर आरे लगाकर उसे हल्का किया। अब सामान, औज़ार और शब्द पहले से कहीं दूर तक पहुँच सकते थे। शहर उठने लगे, और शहरों को एक और चीज़ चाहिए थी: अनजान लोगों से ईमानदारी से लेन-देन का तरीका।"
+    }
   },
   {
     id: 4,
@@ -89,7 +101,11 @@ export const ERAS = [
       hi: "खगोलीय नौवहन गोलीय त्रिकोणमिति पर निर्भर करता है। सिक्कों की शुद्धता मापने के लिए आर्किमिडीज के उत्प्लावन सिद्धांत का उपयोग हुआ।"
     },
     requiredDiscoveries: ["standard_coinage", "paper_sheets", "astrolabe", "merchant_cart"],
-    puzzleId: "celestial_puzzle"
+    puzzleId: "celestial_puzzle",
+    endStory: {
+      en: "As cities grew into trading networks, swapping a cow for a set of tools stopped working. Merchants and rulers agreed on coins of certified weight and metal, so a stranger's coin could be trusted. Paper, light enough to carry, replaced heavy clay tablets, and roads and carts carried goods, news, and ideas across whole continents. At sea there were no roads, so sailors learned to read the sky: with the astrolabe they measured a star's height and found their latitude far from any shore. Trade was now spreading ideas faster than any marching army. But merchants were carrying more knowledge than scribes could copy by hand, and people wanted to see farther than their own eyes could.",
+      hi: "जैसे-जैसे शहर व्यापार के बड़े जाल में बदले, औज़ारों के बदले गाय देने वाला सौदा चलना बंद हो गया। व्यापारियों और राजाओं ने तय वज़न और शुद्ध धातु वाले सिक्कों पर सहमति बनाई, ताकि अजनबी का सिक्का भी भरोसे के लायक हो। भारी मिट्टी की पट्टिकाओं की जगह हल्का काग़ज़ आया, और सड़कों व गाड़ियों ने सामान, ख़बरें और विचार पूरे महाद्वीपों तक पहुँचाए। समुद्र में सड़कें नहीं थीं, इसलिए नाविकों ने आसमान पढ़ना सीखा: खगोलीय यंत्र से उन्होंने तारे की ऊँचाई नापी और किनारे से दूर भी अपना अक्षांश जान लिया। व्यापार अब किसी भी कूच करती सेना से तेज़ विचार फैला रहा था। मगर व्यापारी इतना ज्ञान ढो रहे थे जितना हाथ से नकल करने वाले लेखक संभाल नहीं सकते थे, और लोग अपनी आँखों से आगे देखना चाहते थे।"
+    }
   },
   {
     id: 5,
@@ -111,7 +127,11 @@ export const ERAS = [
       hi: "कांच के मुड़े हुए लेंस स्नेल के अपवर्तन नियम के तहत प्रकाश किरणों को मोड़कर दूर की धुंधली छवियों को आवर्धित और स्पष्ट करते हैं।"
     },
     requiredDiscoveries: ["clear_glass", "optical_lens", "telescope", "printing_press", "compound_microscope"],
-    puzzleId: "optics_puzzle"
+    puzzleId: "optics_puzzle",
+    endStory: {
+      en: "For centuries, books were copied by hand and knowledge stayed locked in a few monasteries. Then movable metal type made printing fast and cheap, and ideas leapt from city to city. At the same time, glassmakers learned to melt sand into clear glass and grind it into lenses. Through them, people saw two worlds no one had known: planets and moons moving across the sky in the telescope, and tiny living cells hidden everywhere in the microscope. People began to test ideas with experiments and measurements instead of only trusting what old books said. Science was becoming a habit. And soon they would ask a bigger question: where could power come from, other than muscle?",
+      hi: "सदियों तक किताबें हाथ से नकल की जाती रहीं और ज्ञान कुछ गिने-चुने मठों में बंद रहा। फिर धातु के चल अक्षरों ने छपाई को तेज़ और सस्ता बना दिया, और विचार एक शहर से दूसरे शहर कूद पड़े। उसी समय काँच बनाने वालों ने रेत को पिघलाकर साफ़ काँच बनाना और उसे घिसकर लेंस बनाना सीखा। उनसे देखने पर लोगों को ऐसी दो दुनियाएँ दिखीं जिनके बारे में किसी को पता न था: दूरबीन में आसमान में घूमते ग्रह और चाँद, और सूक्ष्मदर्शी में हर जगह छिपी नन्ही जीवित कोशिकाएँ। लोग सिर्फ़ पुरानी किताबों पर भरोसा करने के बजाय प्रयोगों और माप से विचारों को परखने लगे। विज्ञान एक आदत बन रहा था। और जल्द ही लोग एक बड़ा सवाल पूछने वाले थे: मांसपेशियों के अलावा ताक़त कहाँ से आ सकती है?"
+    }
   },
   {
     id: 6,
@@ -133,7 +153,11 @@ export const ERAS = [
       hi: "पानी जब उबलकर भाप बनता है तो उसका आयतन 1,700 गुना फैल जाता है। इस विशाल दबाव को पिस्टन में नियंत्रित करके शक्तिशाली गति प्राप्त होती है।"
     },
     requiredDiscoveries: ["high_pressure_steam", "steam_engine", "locomotive_railway", "germ_theory"],
-    puzzleId: "steam_puzzle"
+    puzzleId: "steam_puzzle",
+    endStory: {
+      en: "For thousands of years, every plough, mill, and cart was powered by human or animal muscle. Then people noticed that water turned to steam expands about 1,700 times in volume, and that this force, trapped in a closed cylinder, could push a piston. Burning coal, the stored sunlight of ancient forests, they built the steam engine, and the engine drove factories, ships, and the locomotive on iron rails. Cities swelled with workers, and crowded streets spread disease, until scientists showed that tiny germs cause sickness and doctors began to clean their hands, tools, and wards. Muscle was no longer the limit of what humans could do. But a hidden and even faster force was waiting in wires, and people were starting to feel it.",
+      hi: "हज़ारों साल तक हर हल, चक्की और गाड़ी इंसान या जानवर की मांसपेशियों से चलती रही। फिर लोगों ने देखा कि पानी भाप बनने पर अपने आयतन से करीब 1,700 गुना फैलता है, और बंद सिलेंडर में कैद यह ताक़त पिस्टन को धकेल सकती है। प्राचीन जंगलों की जमा हुई धूप यानी कोयला जलाकर उन्होंने भाप का इंजन बनाया, और इंजन ने कारखाने, जहाज़ और लोहे की पटरियों पर रेलगाड़ी चलाई। शहर मज़दूरों से भर गए और भीड़ भरी गलियों में बीमारियाँ फैलीं, जब तक वैज्ञानिकों ने साबित नहीं किया कि बीमारी नन्हे रोगाणुओं से होती है और डॉक्टरों ने हाथ, औज़ार और वार्ड साफ़ करना शुरू नहीं किया। अब मांसपेशियाँ इंसान की क्षमता की सीमा नहीं रहीं। मगर तारों में एक छिपी, और भी तेज़ ताक़त इंतज़ार कर रही थी, जिसे लोग महसूस करने लगे थे।"
+    }
   },
   {
     id: 7,
@@ -155,7 +179,11 @@ export const ERAS = [
       hi: "ट्रांजिस्टर बिना किसी हिलते हुए पुर्जे के स्विच का काम करते हैं। सिलिकॉन में डोपिंग करके सूक्ष्म वोल्टेज से विशाल धारा को नियंत्रित किया जाता है।"
     },
     requiredDiscoveries: ["chemical_battery", "electromagnet", "transistor", "logic_gates"],
-    puzzleId: "logic_puzzle"
+    puzzleId: "logic_puzzle",
+    endStory: {
+      en: "Scientists found that an invisible flow called electricity could be made on demand: first from a chemical battery, then used to build an electromagnet that came alive at the touch of a switch. Telegraph wires carried messages across oceans in moments. In time, a tiny crystal of silicon, the transistor, learned to act as a switch with no moving parts, and switches wired together learned to follow the rules of logic: yes or no, one or zero. For the first time, human thought could be written in a language that machines could follow. A workshop full of gears and wires was shrinking into a speck of silicon, and nobody yet knew how far that logic could go.",
+      hi: "वैज्ञानिकों ने पाया कि बिजली नाम का एक अदृश्य प्रवाह जब चाहें तब पैदा किया जा सकता है: पहले रासायनिक बैटरी से, फिर उससे ऐसा विद्युत चुंबक बना जो स्विच दबाते ही काम करता था। टेलीग्राफ़ के तारों ने संदेश पल भर में समुद्रों के पार पहुँचाए। समय के साथ सिलिकॉन के एक नन्हे क्रिस्टल, ट्रांजिस्टर, ने बिना किसी हिलते पुर्ज़े के स्विच का काम करना सीखा, और आपस में जुड़े स्विचों ने तर्क के नियम मानना सीखा: हाँ या ना, एक या शून्य। पहली बार इंसानी सोच को ऐसी भाषा में लिखा जा सकता था जिसे मशीनें समझ सकें। एक पूरी कार्यशाला के पहिये और तार अब एक कण जितने सिलिकॉन में सिमट रहे थे, और किसी को अभी नहीं पता था कि यह तर्क कितनी दूर जा सकता है।"
+    }
   },
   {
     id: 8,
@@ -190,7 +218,7 @@ export const ELEMENTS = {
   friction_heat: { id: "friction_heat", name: { en: "Friction Heat", hi: "घर्षण ताप" }, era: 1, icon: "💨", category: "energy", desc: { en: "Kinetic energy converted into thermal energy.", hi: "लकड़ियों को तेज़ी से रगड़ने से उत्पन्न गतिज ताप।" } },
   controlled_fire: { id: "controlled_fire", name: { en: "Controlled Fire", hi: "नियंत्रित आग" }, era: 1, icon: "🔥", category: "energy", isBreakthrough: true, desc: { en: "Humanity's first external energy source. Cooked food, warmed caves, and deterred predators.", hi: "मानव द्वारा आग पर नियंत्रण। भोजन पकाना, ठंड से बचना और जंगली जानवरों से सुरक्षा।" }, science: { en: "Rapid exothermic reaction: Fuel + O2 -> CO2 + H2O + intense Heat & Light.", hi: "दहन एक तीव्र ऊष्माक्षेपी अभिक्रिया है जिससे अपार ऊर्जा निकलती है।" } },
   spear: { id: "spear", name: { en: "Hunting Spear", hi: "शिकार का भाला" }, era: 1, icon: "🗡️", category: "tool", isBreakthrough: true, desc: { en: "Flint-tipped wooden shaft extending defensive reach.", hi: "लकड़ी पर बंधा नुकीला पत्थर। दूर से शिकार करने का साधन।" } },
-  charcoal: { id: "charcoal", name: { en: "Charcoal", hi: "कोयला (चारकोल)" }, era: 1, icon: "⬛", category: "compound", isBreakthrough: true, desc: { en: "Pure carbon fuel created by burning wood under smothered low-oxygen soil.", hi: "कम हवा में लकड़ी सुलगाकर बना शुद्ध कार्बन जो बहुत तेज़ जलता है।" } },
+  charcoal: { id: "charcoal", name: { en: "Charcoal", hi: "कोयला (चारकोल)" }, era: 1, icon: "⬛", category: "compound", isBreakthrough: true, desc: { en: "Pure carbon fuel created by burning wood under smothered low-oxygen soil.", hi: "कम हवा में लकड़ी सुलगाने से शुद्ध चारकोल (कोयला) बन गया।" } },
 
   // ERA 2: The Green Awakening
   wild_seeds: { id: "wild_seeds", name: { en: "Wild Seeds", hi: "जंगली बीज" }, era: 2, icon: "🌱", category: "raw", desc: { en: "Ancestral grass grains (wheat, barley, and rice).", hi: "जंगली घासों के बीज (अनाज के पूर्वज)।" } },

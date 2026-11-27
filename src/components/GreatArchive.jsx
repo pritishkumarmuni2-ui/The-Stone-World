@@ -1,8 +1,8 @@
 import React from 'react';
 import { ERAS, ELEMENTS } from '../data/gameData';
-import { CheckCircle2, Lock } from 'lucide-react';
+import { CheckCircle2, Lock, BookOpen } from 'lucide-react';
 
-export function GreatArchive({ currentEra, unlockedEras, inventory, lang }) {
+export function GreatArchive({ currentEra, unlockedEras, inventory, lang, onOpenStory }) {
   return (
     <div className="max-w-4xl mx-auto flex flex-col gap-5 py-4">
       {ERAS.map(era => {
@@ -15,7 +15,7 @@ export function GreatArchive({ currentEra, unlockedEras, inventory, lang }) {
             key={era.id}
             className={`p-6 rounded-2xl border transition ${isCurrent ? 'bg-slate-900 border-amber-500 shadow-xl shadow-amber-500/10' : isUnlocked ? 'bg-slate-900/80 border-slate-800' : 'bg-slate-950/40 border-slate-900 opacity-40'}`}
           >
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
               <div className="flex items-center gap-3">
                 <span className="text-3xl">{era.badge}</span>
                 <div>
@@ -25,9 +25,20 @@ export function GreatArchive({ currentEra, unlockedEras, inventory, lang }) {
                   <span className="text-xs text-slate-400">{era.period[lang]}</span>
                 </div>
               </div>
-              <span className={`text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider ${isCurrent ? 'bg-amber-500/20 text-amber-400 border border-amber-500/40' : isPast ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-slate-800 text-slate-500'}`}>
-                {isCurrent ? 'Active Era' : isPast ? 'Completed' : 'Locked'}
-              </span>
+              <div className="flex items-center gap-2 flex-wrap justify-end">
+                {era.endStory && isPast && (
+                  <button
+                    onClick={() => onOpenStory && onOpenStory(era.id)}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/40 transition active:scale-95 shadow-sm"
+                  >
+                    <BookOpen className="w-3.5 h-3.5" />
+                    <span>{lang === 'hi' ? 'कहानी पढ़ें' : 'Read the story'}</span>
+                  </button>
+                )}
+                <span className={`text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider ${isCurrent ? 'bg-amber-500/20 text-amber-400 border border-amber-500/40' : isPast ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-slate-800 text-slate-500'}`}>
+                  {isCurrent ? 'Active Era' : isPast ? 'Completed' : 'Locked'}
+                </span>
+              </div>
             </div>
 
             <blockquote className="border-l-2 border-amber-500 pl-3 italic text-xs text-amber-300/90 my-2">
